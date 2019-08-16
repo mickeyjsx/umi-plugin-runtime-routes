@@ -54,7 +54,7 @@ export default {
 
 ### 3. Configure plugin in `.umirc.js`
 
-Configure this plugin in `.umirc.js`, make sure this plugin is configured before any others plugin which depends on routes, like [umi-plugin-mickey](https://github.com/mickeyjsx/umi-plugin-mickey).
+Configure this plugin in `.umirc.js`.
 
 ```javascript
 // .umirc.js
