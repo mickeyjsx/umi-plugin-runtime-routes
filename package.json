@@ -9,6 +9,11 @@
   "author": "James Tsang <wentao_zeng1@163.com>",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "test": "jest --config ./jest.config.js",
+    "build": "del dist --force && bili --config ./bili.config.js",
+    "prepublish": "yarn test && cross-env NODE_ENV=production && yarn build"
+  },
   "files": [
     "dist"
   ],
