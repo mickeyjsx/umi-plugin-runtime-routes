@@ -30,7 +30,7 @@ export default function(api: IApi, options: Options) {
     const _routesModifier = require('${filepath}').default;
     const _pluginRoutes = require('./router').routes;
     const modifiedRoutes = _routesModifier(_pluginRoutes);
-    _pluginRoutes.splice(0, routes.length, ...([].concat(modifiedRoutes)));
+    _pluginRoutes.splice(0, _pluginRoutes.length, ...([].concat(modifiedRoutes)));
     // umi-plugin-runtime-routes end
   `);
 };
