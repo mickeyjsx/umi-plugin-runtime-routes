@@ -4,7 +4,7 @@ export type Routes = IRoute[];
 
 // Iterate routes and modify routes
 export function routesFilter(routes: Routes, callback: (route: IRoute) => boolean): Routes {
-  const resultRoutes: Routes = [...routes];
+  const resultRoutes: Routes = [].concat(routes as any);
   const notHandledRoutes: Routes = [];
   notHandledRoutes.push(...resultRoutes.map(route => {
     route._container = resultRoutes;

@@ -7,6 +7,8 @@ describe('Index', () => {
   beforeEach(() => {
     api = {
       addEntryCodeAhead: jest.fn(),
+      onOptionChange: jest.fn(),
+      rebuildTmpFiles: jest.fn(),
     } as any;
   });
 
@@ -19,18 +21,11 @@ describe('Index', () => {
   });
 
   it('should throw error when modifier path point a nonexistent module', function () {
-    const api: IApi = {
-      addEntryCodeAhead: jest.fn(),
-    } as any;
     expect(() => { plugin(api, { modifier: './path/to/foo' }); }).toThrow(`[umi-plugin-runtime-routes]: 'modifier' option should be a path string to routesModifier module.`);
   });
 
   it('should call addEntryCodeAhead()', function () {
-    const api: IApi = {
-      addEntryCodeAhead: jest.fn(),
-    } as any;
     plugin(api, { modifier: './src/index.ts' });
-
     expect(api.addEntryCodeAhead).toBeCalled();
   });
 
