@@ -35,5 +35,8 @@
     "ts-jest": "^24.0.2",
     "typescript": "^3.5.3",
     "umi-types": "^0.3.17"
+  },
+  "peerDependencies": {
+    "umi": "^2.0.0"
   }
 }
