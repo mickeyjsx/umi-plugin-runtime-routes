@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import slash2 from 'slash2';
 import { IApi } from 'umi-types';
 import _helpers from './helpers';
 import * as _utils from './helpers/util';
@@ -18,7 +19,7 @@ export default function(api: IApi, options: Options) {
     throw new Error(`[umi-plugin-runtime-routes]: 'modifier' option should be a path string to routesModifier module.`)
   }
 
-  const filepath = path.resolve(process.cwd(), modifierPath);
+  const filepath = slash2(path.resolve(process.cwd(), modifierPath));
 
   api.onOptionChange(newOpts => {
     options = newOpts;
