@@ -28,10 +28,12 @@ export default function(api: IApi, options: Options) {
 
   api.addEntryCodeAhead(`
     // umi-plugin-runtime-routes start
-    const _routesModifier = require('${filepath}').default;
-    const _pluginRoutes = require('./router').routes;
-    const modifiedRoutes = _routesModifier(_pluginRoutes);
-    _pluginRoutes.splice(0, _pluginRoutes.length, ...([].concat(modifiedRoutes)));
+    (() => {
+      const _routesModifier = require('${filepath}').default;
+      const _pluginRoutes = require('./router').routes;
+      const modifiedRoutes = _routesModifier(_pluginRoutes);
+      _pluginRoutes.splice(0, _pluginRoutes.length, ...([].concat(modifiedRoutes)));
+    })();
     // umi-plugin-runtime-routes end
   `);
 };
